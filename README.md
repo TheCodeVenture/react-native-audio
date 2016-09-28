@@ -9,8 +9,8 @@ and adds a callback function to prepareRecordingAtPath method
 Install the npm package and link it to your project:
 
 ```
-npm install react-native-audio
-react-native link react-native-audio
+npm install react-native-audio-louder
+react-native react-native-audio-louder
 ```
 
 On *Android* you need to add a permission to `AndroidManifest.xml`:
@@ -38,7 +38,7 @@ NOTE: Progress reporting is *iOS only* for now.
 To record in AAC format, at 22050 KHz in low quality mono:
 
 ```
-import {AudioRecorder, AudioUtils} from 'react-native-audio';
+import {AudioRecorder, AudioUtils} from 'react-native-audio-louder';
 let audioPath = AudioUtils.DocumentDirectoryPath + '/test.aac';
 
 AudioRecorder.prepareRecordingAtPath(audioPath, {
@@ -70,7 +70,7 @@ The `MeteringEnabled` boolean to enable audio metering.
 AudioEncodingBitRate: int
 OutputFormat: string, `mpeg_4, aac_adts, amr_nb, amr_wb, three_gpp, webm`
 
-See [the example](https://github.com/jsierles/react-native-audio/blob/master/AudioExample/index.ios.js) for more options, including playback and callbacks. For more audio play features, check out [React Native Sound](https://github.com/zmxv/react-native-sound)
+See [the example](https://github.com/TheCodeVenture/react-native-audio-louder/blob/master/AudioExample/AudioExample.js) for more options, including playback and callbacks. For more audio play features, check out [React Native Sound](https://github.com/zmxv/react-native-sound)
 
 MP3 recording is *not supported* since the underlying platforms do not support it.
 
