@@ -8,7 +8,7 @@ import {
   TouchableHighlight
 } from 'react-native';
 
-import {AudioRecorder, AudioUtils} from 'react-native-audio';
+import {AudioRecorder, AudioUtils} from 'react-native-audio-louder';
 
 class AudioExample extends Component {
 
