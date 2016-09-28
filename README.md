@@ -10,7 +10,7 @@ Install the npm package and link it to your project:
 
 ```
 npm install react-native-audio-louder
-react-native react-native-audio-louder
+react-native link react-native-audio-louder
 ```
 
 On *Android* you need to add a permission to `AndroidManifest.xml`:
