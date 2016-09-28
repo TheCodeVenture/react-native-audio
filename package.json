@@ -1,6 +1,6 @@
 {
   "name": "react-native-audio-louder",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "React Native extension for recording audio",
   "main": "Audio.ios.js",
   "author": "André Fatia <andre@thecodeventure.com> (https://github.com/TheCodeVenture)",
