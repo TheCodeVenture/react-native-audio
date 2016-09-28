@@ -1,5 +1,9 @@
 Record and play back audio in your iOS or Android React Native apps.
 
+## NOTE:
+This repository adds the loudspeaker as default speaker for iOS,
+and adds a callback function to prepareRecordingAtPath method
+
 ### Installation
 
 Install the npm package and link it to your project:

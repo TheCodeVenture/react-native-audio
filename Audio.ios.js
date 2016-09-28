@@ -86,7 +86,7 @@ var AudioPlayer = {
 };
 
 var AudioRecorder = {
-  prepareRecordingAtPath: function(path, options) {
+  prepareRecordingAtPath: function(path, options, callback) {
     var defaultOptions = {
       SampleRate: 44100.0,
       Channels: 2,
@@ -105,12 +105,13 @@ var AudioRecorder = {
         recordingOptions.Channels,
         recordingOptions.AudioQuality,
         recordingOptions.AudioEncoding,
-        recordingOptions.MeteringEnabled
+        recordingOptions.MeteringEnabled,
+        callback
       );
     }
     else {
       return AudioRecorderManager.prepareRecordingAtPath(
-        path,recordingOptions)
+        path,recordingOptions, callback)
     }
 
     if (this.progressSubscription) this.progressSubscription.remove();

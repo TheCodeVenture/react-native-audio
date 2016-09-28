@@ -87,6 +87,11 @@ RCT_EXPORT_METHOD(play:(NSString *)path options:(NSDictionary *)options)
   NSString *sessionCategory = [RCTConvert NSString:options[@"sessionCategory"]];
   [self setSessionCategory:sessionCategory];
   NSNumber *numberOfLoops = [RCTConvert NSNumber:options[@"numberOfLoops"]];
+  
+  //define output as loudspeaker
+  UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;
+  AudioSessionSetProperty(kAudioSessionProperty_OverrideAudioRoute,
+                            sizeof(audioRouteOverride), &audioRouteOverride);
 
   _audioFileURL = [NSURL fileURLWithPath:path];
 

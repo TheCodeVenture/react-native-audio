@@ -91,7 +91,7 @@ RCT_EXPORT_MODULE();
   return basePath;
 }
 
-RCT_EXPORT_METHOD(prepareRecordingAtPath:(NSString *)path sampleRate:(float)sampleRate channels:(nonnull NSNumber *)channels quality:(NSString *)quality encoding:(NSString *)encoding meteringEnabled:(BOOL)meteringEnabled)
+RCT_EXPORT_METHOD(prepareRecordingAtPath:(NSString *)path sampleRate:(float)sampleRate channels:(nonnull NSNumber *)channels quality:(NSString *)quality encoding:(NSString *)encoding meteringEnabled:(BOOL)meteringEnabled callback:(RCTResponseSenderBlock)callback)
 {
   _prevProgressUpdateTime = nil;
   [self stopProgressTimer];
@@ -178,7 +178,11 @@ RCT_EXPORT_METHOD(prepareRecordingAtPath:(NSString *)path sampleRate:(float)samp
       NSLog(@"error: %@", [error localizedDescription]);
       // TODO: dispatch error over the bridge
     } else {
-      [_audioRecorder prepareToRecord];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [_audioRecorder prepareToRecord];
+            NSString *ready = @"ready";
+            callback(@[[NSNull null], ready]);
+        });
   }
 }
 
